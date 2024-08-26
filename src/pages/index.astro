@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/astro/components'
 ---
 
 <!doctype html>
@@ -12,7 +13,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
   </head>
   <body>
     <Header />
-    <div class="text-red-500">hello</div>
+    <SignedOut>
+      <SignInButton mode="modal" />
+    </SignedOut>
+    <SignedIn>
+      <UserButton />
+    </SignedIn>
+
     <main>
       <h1>🧑‍🚀 Hello, Astronaut!</h1>
       <p>
